@@ -110,6 +110,9 @@ because it comes from a derivative of noisy positions.
 
     One problem I had was with equilibrium.py: the return line of my function was not indented, which gave an IndentationError, and I fixed it by indenting it. I also first ran the scripts from the wrong folder, and I fixed it by moving into PW2/Lab B before running them.
 
+
+
+
 ## PW3 --- Session 1
 
 **Data:** Cleveland Heart Disease dataset (UCI / Kaggle, ritwikb3/heart-disease-cleveland), 303 patients, 14 columns. I used age, chol, trestbps and thalach.
@@ -130,3 +133,17 @@ because it comes from a derivative of noisy positions.
 
 ![Distributions](PW3/distributions.png)
 ![Q-Q plots](PW3/qqplots.png)
+
+## PW3 --- Session 2
+
+**Heart rate comparison:** thalach was roughly normal, so I used Welch's t-test (no equal-variance assumption) and checked it with Mann-Whitney, which doesn't assume normality.
+    -Disease: mean 139.3 bpm (95% CI ±3.8), n = 139.
+    -Healthy: mean 158.4 bpm (95% CI ±3.0), n = 164.
+    -Welch t = -7.86, p = 9e-14; Mann-Whitney p = 2e-13.
+    -Conclusion: the groups genuinely differ; patients with heart disease reach about 19 bpm lower maximum heart rate. The confidence intervals do not overlap, which agrees with the tests.
+
+![Means](PW3/thalach_means.png)
+
+**Age vs heart rate:** Pearson r = -0.39 and Spearman rho = -0.39 (both p ~ 1e-12). Older patients reach a lower maximum heart rate, about 1 bpm less per year of age. The relationship is moderate: age explains only about 16% of the variation in thalach.
+
+![Age vs thalach](PW3/age_thalach.png)
