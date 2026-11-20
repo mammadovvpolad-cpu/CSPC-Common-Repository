@@ -147,3 +147,23 @@ because it comes from a derivative of noisy positions.
 **Age vs heart rate:** Pearson r = -0.39 and Spearman rho = -0.39 (both p ~ 1e-12). Older patients reach a lower maximum heart rate, about 1 bpm less per year of age. The relationship is moderate: age explains only about 16% of the variation in thalach.
 
 ![Age vs thalach](PW3/age_thalach.png)
+
+## PW3 --- Chemical mystery
+
+**Naive analysis (all 1000 patients):** benzene r = 0.385, cadmium r = 0.880 (Spearman agrees). Taken at face value, cadmium appears to be the cause of malignancy.
+
+## PW3 --- Chemical mystery
+
+**Naive analysis (all 1000 patients):** benzene r = 0.385, cadmium r = 0.880 (Spearman agrees). Taken at face value, cadmium appears to be the cause of malignancy.
+
+**Look again:** the correlation table shows pollution_index is linked to cadmium (r = 0.98) and to malignancy (r = 0.90), but not to benzene (r = 0.05). So pollution could be a confounder: it drives both cadmium and malignancy. Age is not (all its correlations are about 0).
+
+**Test:** I restricted to patients with similar pollution and recomputed, and I also computed the partial correlation (pollution removed from both variables).
+    -Pollution 40-60 (n = 199): benzene r = 0.70, cadmium r = 0.32.
+    -Pollution 45-55 (n = 94): benzene r = 0.66, cadmium r = -0.04 (p = 0.70).
+    -Partial correlation: benzene r = 0.755, cadmium r = 0.013 (p = 0.69).
+
+**Conclusion:** benzene is the real cause. Its association survives and gets stronger when pollution is controlled. Cadmium only looked guilty because it rises with pollution, and its association disappears once pollution is held constant. The wide 40-60 band still shows some cadmium effect because pollution still varies inside it; the narrower band removes it.
+
+![Naive](PW3/naive.png)
+![Restricted](PW3/restricted.png)
