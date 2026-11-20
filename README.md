@@ -110,4 +110,23 @@ because it comes from a derivative of noisy positions.
 
     One problem I had was with equilibrium.py: the return line of my function was not indented, which gave an IndentationError, and I fixed it by indenting it. I also first ran the scripts from the wrong folder, and I fixed it by moving into PW2/Lab B before running them.
 
-    
+## PW3 --- Session 1
+
+**Data:** Cleveland Heart Disease dataset (UCI / Kaggle, ritwikb3/heart-disease-cleveland), 303 patients, 14 columns. I used age, chol, trestbps and thalach.
+
+**Shapes:**
+    -age: broad and lumpy with several peaks, slightly longer on the young side.
+    -chol: one peak near 230 with a long right tail and an outlier at 564.
+    -trestbps: one peak around 120-140, mild right tail.
+    -thalach: one peak around 160-170, longer left tail.
+
+**Normality verdicts (histogram, skew, kurtosis, Shapiro-Wilk, Q-Q plot):**
+    -age: approximately normal (skew -0.21, but Shapiro p = 0.006 because n is large).
+    -chol: not normal (skew 1.13, kurtosis 4.4, Shapiro p ~ 0, Q-Q curves at the right end).
+    -trestbps: not normal (skew 0.70, Shapiro p ~ 0).
+    -thalach: approximately normal with mild left skew (skew -0.53, kurtosis -0.07, Shapiro p = 0.00007).
+
+**Reasoning:** with 303 points Shapiro rejects even small deviations, so I also used skew, kurtosis and the Q-Q plots.
+
+![Distributions](PW3/distributions.png)
+![Q-Q plots](PW3/qqplots.png)
