@@ -167,3 +167,5 @@ because it comes from a derivative of noisy positions.
 
 ![Naive](PW3/naive.png)
 ![Restricted](PW3/restricted.png)
+
+**Bonus (entropy of target):** proportions are 54.1% healthy and 45.9% disease, giving an entropy of 0.995 bits (maximum for two classes is 1 bit). The column is almost perfectly balanced, so the category is about as hard to guess as a fair coin; always guessing "healthy" would be right only 54% of the time.
